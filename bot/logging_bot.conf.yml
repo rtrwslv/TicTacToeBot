@@ -1,0 +1,19 @@
+version: 1
+disable_existing_loggers: no
+formatters:
+  console:
+    (): logger.ConsoleFormatter
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: console
+root:
+  level: INFO
+  handlers: [console]
+loggers:
+  'tictactoe_bot':
+    level: INFO
+    propagate: no
+  'uvicorn':
+    level: INFO
+    propagate: yes

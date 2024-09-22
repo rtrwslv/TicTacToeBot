@@ -1,0 +1,18 @@
+services:
+  bot:
+    build:
+      context: .
+    command: ./run/start_bot.sh
+    env_file:
+      - .env
+    ports:
+      - ${WEBHOOK_PORT:-8888}:${WEBHOOK_PORT:-8888}
+    volumes:
+      - ./:/bot
+    networks:
+      - src_tictactoe
+
+
+networks:
+  src_tictactoe:
+    external: true
